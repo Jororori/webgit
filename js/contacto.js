@@ -39,3 +39,9 @@ form.addEventListener("submit", e => {
     form.reset();
     contadorCaracteres.textContent = "0 / 300";
 });
+
+
+function mostrarEstado(texto, tipo) {
+    estado.textContent = texto;
+    estado.className = "form-estado " + tipo;
+}
