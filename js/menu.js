@@ -33,3 +33,27 @@ window.addEventListener("scroll", () => {
     });
 });
 volverArriba.addEventListener("click", () => window.scrollTo({ top: 0 }));
+
+
+
+// titulo de hero
+
+const palabras = ["Trujillo", "la ciudad", "tu mañana", "tu tarde"];
+let indice = 0;
+const textoRotativo = document.getElementById("textoRotativo");
+setInterval(() => {
+    indice = (indice + 1) % palabras.length;
+    textoRotativo.textContent = palabras[indice];
+}, 2500);
+
+// Abierto / cerrado según la hora real
+function actualizarEstado() {
+    const ahora = new Date();
+    const dia = ahora.getDay();      // 0 = domingo
+    const hora = ahora.getHours();
+    const abierto = dia === 0 ? (hora >= 9 && hora < 14) : (hora >= 8 && hora < 21);
+    document.getElementById("estadoLocal").innerHTML =
+        `<span class="punto" style="background:${abierto ? "#4caf50" : "#e53935"}"></span>` +
+        (abierto ? "Abierto ahora" : "Cerrado ahora");
+}
+actualizarEstado();
