@@ -16,3 +16,48 @@ const productos = [
     { id: 8, nombre: "Alfajor",          precio: 4.50,  categoria: "postre", etiqueta: "",         desc: "Relleno de manjar blanco artesanal.",     imagen: img("photo-1558961363-fa8fdf82db35") },
     { id: 9, nombre: "Brownie",          precio: 7.00,  categoria: "postre", etiqueta: "",         desc: "Chocolate 70% cacao peruano.",            imagen: img("photo-1606313564200-e75d5e30476c") }
 ];
+
+
+
+// funcion para buscar y mostrar productos
+
+const grid = document.getElementById("gridProductos");
+const buscador = document.getElementById("buscador");
+const sinResultados = document.getElementById("sinResultados");
+let categoriaActual = "todos";
+
+function mostrarProductos() {
+    const texto = buscador.value.toLowerCase().trim();
+    const lista = productos.filter(p =>
+        (categoriaActual === "todos" || p.categoria === categoriaActual) &&
+        p.nombre.toLowerCase().includes(texto)
+    );
+
+    sinResultados.style.display = lista.length ? "none" : "block";
+    grid.innerHTML = lista.map(p => `
+        <article class="tarjeta">
+            <div class="tarjeta-img">
+                <img src="${p.imagen}" alt="${p.nombre}" loading="lazy">
+                ${p.etiqueta ? `<span class="etiqueta">${p.etiqueta}</span>` : ""}
+            </div>
+            <div class="tarjeta-cuerpo">
+                <h3>${p.nombre}</h3>
+                <p class="desc">${p.desc}</p>
+                <div class="tarjeta-pie">
+                    <span class="precio">S/ ${p.precio.toFixed(2)}</span>
+                    <button class="btn-agregar" data-id="${p.id}">+ Agregar</button>
+                </div>
+            </div>
+        </article>
+    `).join("");
+}
+
+document.querySelectorAll(".filtro").forEach(boton => {
+    boton.addEventListener("click", () => {
+        document.querySelector(".filtro.activo").classList.remove("activo");
+        boton.classList.add("activo");
+        categoriaActual = boton.dataset.categoria;
+        mostrarProductos();
+    });
+});
+buscador.addEventListener("input", mostrarProductos);
