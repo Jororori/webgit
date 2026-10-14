@@ -46,7 +46,9 @@ setInterval(() => {
     textoRotativo.textContent = palabras[indice];
 }, 2500);
 
-// Abierto / cerrado según la hora real
+
+// estado de atencion en tiempo real
+
 function actualizarEstado() {
     const ahora = new Date();
     const dia = ahora.getDay();      // 0 = domingo
