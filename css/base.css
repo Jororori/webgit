@@ -94,3 +94,18 @@ img { max-width: 100%; display: block; }
 .beneficio span { font-size: 2.2rem; }
 
 /*-------------------------------------------------------------------*/
+
+.revelar { opacity: 0; transform: translateY(40px); transition: .8s ease; }
+.revelar.visible { opacity: 1; transform: none; }
+
+.footer { background: var(--cafe-oscuro); color: var(--crema); padding: 50px 0 20px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 30px; }
+.footer h4 { color: var(--dorado); margin-bottom: 10px; }
+.footer-grid a:not(.logo) { display: block; color: var(--crema); text-decoration: none; margin-bottom: 6px; }
+.footer-grid a:hover { color: var(--dorado); }
+.redes { display: flex; gap: 12px; font-size: 1.5rem; }
+.copy { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.1); font-size: .85rem; }
+ 
+/*-------------------------------------------------------------------*/
+
+
