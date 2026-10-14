@@ -5,3 +5,11 @@ const testimonios = [
     { nombre: "Andrea P.",  texto: "Me encanta que trabajen con productores peruanos. Se nota la calidad.",       estrellas: 4 },
     { nombre: "Carlos M.",  texto: "Atención rápida y amable. El café helado es perfecto para el verano.",       estrellas: 5 }
 ];
+
+
+
+let actual = 0;
+const caja = document.getElementById("testimonio");
+const puntos = document.getElementById("puntos");
+
+puntos.innerHTML = testimonios.map((_, i) => `<span data-i="${i}"></span>`).join("");
