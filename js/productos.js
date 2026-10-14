@@ -61,3 +61,27 @@ document.querySelectorAll(".filtro").forEach(boton => {
     });
 });
 buscador.addEventListener("input", mostrarProductos);
+
+
+// seccion carrito de compras - cargar y guardar
+
+let carrito = cargarCarrito();
+
+function cargarCarrito() {
+    try { return JSON.parse(localStorage.getItem("carritoCafe")) || []; }
+    catch { return []; }
+}
+function guardarCarrito() {
+    try { localStorage.setItem("carritoCafe", JSON.stringify(carrito)); } catch {}
+}
+
+grid.addEventListener("click", e => {
+    if (!e.target.matches(".btn-agregar")) return;
+    const id = +e.target.dataset.id;
+    const item = carrito.find(i => i.id === id);
+    item ? item.cantidad++ : carrito.push({ id, cantidad: 1 });
+    const contador = document.getElementById("contadorCarrito");
+    contador.classList.remove("saltar"); void contador.offsetWidth; contador.classList.add("saltar");
+    mostrarAviso(`${productos.find(p => p.id === id).nombre} agregado ☕`);
+    actualizarCarrito();
+});
