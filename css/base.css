@@ -108,4 +108,29 @@ img { max-width: 100%; display: block; }
  
 /*-------------------------------------------------------------------*/
 
+.volver-arriba {
+    position: fixed; right: 20px; bottom: 20px;
+    width: 46px; height: 46px; border-radius: 50%;
+    border: none; background: var(--dorado); color: var(--cafe-oscuro);
+    font-size: 1.3rem; cursor: pointer; box-shadow: var(--sombra);
+    opacity: 0; pointer-events: none; transition: .3s; z-index: 40;
+}
+.volver-arriba.visible { opacity: 1; pointer-events: auto; }
 
+
+@media (max-width: 800px) {
+    .menu-toggle { display: block; }
+    .nav-links {
+        position: fixed; top: 0; right: -100%;
+        width: 70%; height: 100vh;
+        flex-direction: column; padding: 90px 30px;
+        background: var(--cafe-oscuro); transition: .4s;
+    }
+    .nav-links.abierto { right: 0; }
+    .hero h1 { font-size: 2.2rem; }
+    .hero { background-attachment: scroll; }
+    .nosotros-grid, .footer-grid { grid-template-columns: 1fr; }
+    .nosotros-texto h2 { text-align: center; }
+    .estadisticas { justify-content: center; }
+    .beneficios { grid-template-columns: 1fr 1fr; }
+}
