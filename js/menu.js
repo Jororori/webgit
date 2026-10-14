@@ -59,3 +59,27 @@ function actualizarEstado() {
         (abierto ? "Abierto ahora" : "Cerrado ahora");
 }
 actualizarEstado();
+
+
+// animacion de inicio y contador de estadisticas
+
+const observador = new IntersectionObserver(entradas => {
+    entradas.forEach(e => {
+        if (!e.isIntersecting) return;
+        e.target.classList.add("visible");
+        e.target.querySelectorAll(".contar").forEach(animarContador);
+        observador.unobserve(e.target);
+    });
+}, { threshold: 0.2 });
+document.querySelectorAll(".revelar").forEach(el => observador.observe(el));
+
+function animarContador(el) {
+    const meta = +el.dataset.meta;
+    let actual = 0;
+    const paso = Math.ceil(meta / 60);
+    const timer = setInterval(() => {
+        actual = Math.min(actual + paso, meta);
+        el.textContent = "+" + actual.toLocaleString("es-PE");
+        if (actual === meta) clearInterval(timer);
+    }, 25);
+}
