@@ -31,3 +31,12 @@ document.getElementById("nextTest").addEventListener("click", () => { mostrarTes
 puntos.addEventListener("click", e => {
     if (e.target.dataset.i) { mostrarTestimonio(+e.target.dataset.i); reiniciar(); }
 });
+
+
+let auto = setInterval(() => mostrarTestimonio(actual + 1), 5000);
+function reiniciar() {
+    clearInterval(auto);
+    auto = setInterval(() => mostrarTestimonio(actual + 1), 5000);
+}
+
+mostrarTestimonio(0);
