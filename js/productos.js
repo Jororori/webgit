@@ -119,3 +119,25 @@ document.getElementById("carritoLista").addEventListener("click", e => {
     if (item.cantidad === 0) carrito = carrito.filter(i => i !== item);
     actualizarCarrito();
 });
+
+
+
+const panel = document.getElementById("carrito");
+const overlay = document.getElementById("overlay");
+const abrirCarrito = () => { panel.classList.add("abierto"); overlay.classList.add("visible"); };
+const cerrarCarrito = () => { panel.classList.remove("abierto"); overlay.classList.remove("visible"); };
+document.getElementById("btnCarrito").addEventListener("click", abrirCarrito);
+document.getElementById("cerrarCarrito").addEventListener("click", cerrarCarrito);
+overlay.addEventListener("click", cerrarCarrito);
+
+document.getElementById("btnVaciar").addEventListener("click", () => {
+    carrito = [];
+    actualizarCarrito();
+});
+document.getElementById("btnConfirmar").addEventListener("click", () => {
+    if (!carrito.length) return mostrarAviso("Agrega algo a tu pedido primero");
+    mostrarAviso("¡Pedido confirmado! Te esperamos 🎉");
+    carrito = [];
+    actualizarCarrito();
+    cerrarCarrito();
+});
