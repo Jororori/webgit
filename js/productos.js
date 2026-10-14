@@ -141,3 +141,14 @@ document.getElementById("btnConfirmar").addEventListener("click", () => {
     actualizarCarrito();
     cerrarCarrito();
 });
+
+function mostrarAviso(texto) {
+    const toast = document.getElementById("toast");
+    toast.textContent = texto;
+    toast.classList.add("visible");
+    clearTimeout(mostrarAviso.timer);
+    mostrarAviso.timer = setTimeout(() => toast.classList.remove("visible"), 2500);
+}
+
+mostrarProductos();
+actualizarCarrito();
