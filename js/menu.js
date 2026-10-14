@@ -83,3 +83,9 @@ function animarContador(el) {
         if (actual === meta) clearInterval(timer);
     }, 25);
 }
+
+
+
+// año automatico en el footer
+
+document.getElementById("anio").textContent = new Date().getFullYear();
