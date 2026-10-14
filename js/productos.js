@@ -85,3 +85,37 @@ grid.addEventListener("click", e => {
     mostrarAviso(`${productos.find(p => p.id === id).nombre} agregado ☕`);
     actualizarCarrito();
 });
+
+
+function actualizarCarrito() {
+    const lista = document.getElementById("carritoLista");
+    let total = 0, unidades = 0;
+
+    lista.innerHTML = carrito.length ? carrito.map(item => {
+        const p = productos.find(prod => prod.id === item.id);
+        total += p.precio * item.cantidad;
+        unidades += item.cantidad;
+        return `
+            <li>
+                <span>${p.nombre}<br><small>S/ ${(p.precio * item.cantidad).toFixed(2)}</small></span>
+                <div class="cantidad">
+                    <button data-accion="restar" data-id="${p.id}">−</button>
+                    <span>${item.cantidad}</span>
+                    <button data-accion="sumar" data-id="${p.id}">+</button>
+                </div>
+            </li>`;
+    }).join("") : `<li class="vacio">Tu pedido está vacío</li>`;
+
+    document.getElementById("carritoTotal").textContent = `S/ ${total.toFixed(2)}`;
+    document.getElementById("contadorCarrito").textContent = unidades;
+    guardarCarrito();
+}
+
+document.getElementById("carritoLista").addEventListener("click", e => {
+    const accion = e.target.dataset.accion;
+    if (!accion) return;
+    const item = carrito.find(i => i.id === +e.target.dataset.id);
+    item.cantidad += accion === "sumar" ? 1 : -1;
+    if (item.cantidad === 0) carrito = carrito.filter(i => i !== item);
+    actualizarCarrito();
+});
