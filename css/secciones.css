@@ -79,3 +79,49 @@
 .btn-texto { background: none; border: none; color: #999; cursor: pointer; text-decoration: underline; }
 .overlay { position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 60; display: none; }
 .overlay.visible { display: block; }
+
+/*-------------------------------------------------------------------*/
+
+.carrusel { display: flex; align-items: center; gap: 20px; max-width: 720px; margin: 30px auto 0; }
+.testimonio {
+    flex: 1; background: var(--crema); border-radius: 16px; padding: 34px;
+    text-align: center; min-height: 210px; animation: aparecer .5s ease;
+}
+.testimonio .estrellas { color: var(--dorado); font-size: 1.2rem; }
+.testimonio p { font-style: italic; margin: 14px 0; }
+.testimonio strong { color: var(--cafe); }
+.flecha {
+    width: 44px; height: 44px; flex-shrink: 0; border-radius: 50%; border: none;
+    background: var(--cafe); color: var(--blanco); font-size: 1.5rem; cursor: pointer;
+}
+.puntos { display: flex; justify-content: center; gap: 8px; margin-top: 18px; }
+.puntos span { width: 10px; height: 10px; border-radius: 50%; background: #d8c6b4; cursor: pointer; }
+.puntos span.activo { background: var(--cafe); }
+
+.contacto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.contacto-info h2, .form-contacto h2 { text-align: left; }
+.contacto-info p { margin-bottom: 8px; }
+.mapa { width: 100%; height: 230px; border: 0; border-radius: 12px; margin-top: 14px; }
+.form-contacto { display: flex; flex-direction: column; gap: 12px; }
+.form-contacto input, .form-contacto textarea, .form-contacto select {
+    padding: 12px; border: 2px solid #e2d3c3; border-radius: 8px; font: inherit; background: var(--blanco);
+}
+.form-contacto input:focus, .form-contacto textarea:focus, .form-contacto select:focus { outline: none; border-color: var(--dorado); }
+.form-contacto .invalido { border-color: #e53935; }
+.contador-caracteres { text-align: right; color: #999; margin-top: -8px; }
+.form-estado { text-align: center; font-weight: 600; }
+.form-estado.error { color: #c62828; }
+.form-estado.ok { color: #2e7d32; }
+
+.toast {
+    position: fixed; left: 50%; bottom: 30px; transform: translate(-50%, 100px);
+    background: var(--cafe-oscuro); color: var(--blanco);
+    padding: 12px 24px; border-radius: 30px; z-index: 90;
+    opacity: 0; transition: .4s;
+}
+.toast.visible { transform: translate(-50%, 0); opacity: 1; }
+
+@media (max-width: 800px) {
+    .contacto-grid { grid-template-columns: 1fr; }
+    .flecha { display: none; }
+}
