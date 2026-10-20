@@ -72,7 +72,23 @@
     </section>
 
 <!-------------------------------------------------------------------->
-
+    <section class="seccion seccion-alt" id="menu">
+        <div class="contenedor">
+            <h2>Nuestro menú</h2>
+            <p class="subtitulo">Elige tus favoritos y arma tu pedido</p>
+            <div class="barra-menu">
+                <input type="search" id="buscador" placeholder="🔍 Buscar producto...">
+                <div class="filtros" id="filtros">
+                    <button class="filtro activo" data-categoria="todos">Todos</button>
+                    <button class="filtro" data-categoria="cafe">Café</button>
+                    <button class="filtro" data-categoria="frio">Fríos</button>
+                    <button class="filtro" data-categoria="postre">Postres</button>
+                </div>
+            </div>
+            <div class="grid-productos" id="gridProductos"></div>
+            <p class="sin-resultados" id="sinResultados">No encontramos ese producto 😕</p>
+        </div>
+    </section>
 <!-------------------------------------------------------------------->
     <aside class="carrito" id="carrito" aria-label="Tu pedido">
         <div class="carrito-cabecera">
