@@ -33,6 +33,62 @@
     </header>
 <!-------------------------------------------------------------------->
 
+<section class="hero" id="inicio">
+        <div class="contenedor hero-contenido">
+            <p class="hero-sub">Café de especialidad · Desde 2015</p>
+            <h1>El mejor café de <span id="textoRotativo">Trujillo</span></h1>
+            <p>Granos peruanos seleccionados, tostados con cariño cada semana.</p>
+            <div class="hero-botones">
+                <a href="#menu" class="btn">Ver menú</a>
+                <a href="#contacto" class="btn btn-borde">Reservar mesa</a>
+            </div>
+            <p class="estado-local" id="estadoLocal"></p>
+        </div>
+    </section>
+<!-------------------------------------------------------------------->
+<section class="seccion" id="nosotros">
+        <div class="contenedor nosotros-grid">
+            <div class="nosotros-img revelar">
+                <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=800" alt="Barista preparando café">
+            </div>
+            <div class="nosotros-texto revelar">
+                <h2>Nuestra historia</h2>
+                <p>Somos una cafetería familiar que trabaja directamente con productores
+                   de Cajamarca y Amazonas. Pagamos un precio justo y tostamos en pequeños
+                   lotes para que cada taza conserve su aroma.</p>
+                <div class="estadisticas">
+                    <div><strong class="contar" data-meta="10">0</strong><span>años</span></div>
+                    <div><strong class="contar" data-meta="25">0</strong><span>productores</span></div>
+                    <div><strong class="contar" data-meta="5000">0</strong><span>clientes felices</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="contenedor beneficios">
+            <div class="beneficio revelar"><span>🌱</span><h3>100% orgánico</h3><p>Cultivado sin químicos.</p></div>
+            <div class="beneficio revelar"><span>🤝</span><h3>Comercio justo</h3><p>Directo del productor.</p></div>
+            <div class="beneficio revelar"><span>🔥</span><h3>Tostado local</h3><p>Fresco cada semana.</p></div>
+            <div class="beneficio revelar"><span>📶</span><h3>Wi-Fi gratis</h3><p>Ideal para estudiar.</p></div>
+        </div>
+    </section>
+
+<!-------------------------------------------------------------------->
+    <section class="seccion seccion-alt" id="menu">
+        <div class="contenedor">
+            <h2>Nuestro menú</h2>
+            <p class="subtitulo">Elige tus favoritos y arma tu pedido</p>
+            <div class="barra-menu">
+                <input type="search" id="buscador" placeholder="🔍 Buscar producto...">
+                <div class="filtros" id="filtros">
+                    <button class="filtro activo" data-categoria="todos">Todos</button>
+                    <button class="filtro" data-categoria="cafe">Café</button>
+                    <button class="filtro" data-categoria="frio">Fríos</button>
+                    <button class="filtro" data-categoria="postre">Postres</button>
+                </div>
+            </div>
+            <div class="grid-productos" id="gridProductos"></div>
+            <p class="sin-resultados" id="sinResultados">No encontramos ese producto 😕</p>
+        </div>
+    </section>
 <!-------------------------------------------------------------------->
     <aside class="carrito" id="carrito" aria-label="Tu pedido">
         <div class="carrito-cabecera">
